@@ -31,3 +31,4 @@
 ## 版本许可
 
 源码和文档版权属于 [xiaohuwei.cn](http://www.xiaohuwei.cn)。文档发布基于 [Apache License 2.0](http://www.apache.org/licenses/LICENSE-2.0) 开源协议。
+原著：飘零雾雨 [作者网站](http://css.doyoe.com/) .
