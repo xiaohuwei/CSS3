@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+<meta charset="utf-8" />
+<title>word-break</title>
+<meta name="description" content="CSS3参考手册之:word-break" />
+<meta name="keywords" content="word-break, css3, css3参考手册" />
+<meta name="author" content="Joy Du(飘零雾雨), dooyoe@gmail.com, www.doyoe.com" />
+<meta name="robots" content="all" />
+<!--[if lte IE 8]>
+<script src="../../js/html5.js"></script>
+<![endif]-->
+<link rel="stylesheet" href="../../skin/article.css" />
+</head>
+<body>
+<nav id="guide" class="g-mod">
+	<div class="from">
+		<a href="http://css.doyoe.com/" target="_blank">CSS3参考手册</a>
+		<span>&#187;</span>
+		<a href="../index.htm">属性列表</a>
+		<span>&#187;</span>
+		<a href="index.htm" id="category" rel="properties/text" name="word-break">文本属性</a>
+		<span>&#187;</span>
+	</div>
+	<div class="to">
+		<span class="label">相关内容：</span>
+		<div class="g-combobox g-transition">
+			<a href="?" class="g-transition target">
+				<strong>其它文本属性参考</strong>
+				<span>选择其它项<!--[if lte IE 7]><ins>IE7 and earlier, Get to die</ins><![endif]--></span>
+			</a>
+			<div class="g-transition list">
+				<ul>
+					<!-- 插入快速分类导航 -->
+				</ul>
+			</div>
+		</div>
+	</div>
+</nav>
+<header id="hd">
+	<section id="title" class="g-mod">
+		<h1 class="tit">word-break</h1>
+		<ul class="info">
+			<li><strong>版本：CSS3</strong></li>
+			<li>2018.3.26</li>
+		</ul>
+		<!-- 插入浏览器信息 -->
+	</section>
+</header>
+<section id="bd">
+	<section id="syntax" class="g-mod g-attr">
+		<h2 class="tit">语法：</h2>
+		<div class="cont">
+			<p><strong>word-break</strong>：normal | keep-all | break-all | break-word</p>
+			<p><strong>默认值</strong>：<mark class="defaultvalue">normal</mark></p>
+			<p><strong>适用于</strong>：所有元素</p>
+			<p><strong>继承性</strong>：有</p>
+			<p><strong>动画性</strong>：否</p>
+			<p><strong>计算值</strong>：指定值</p>
+			<p><strong>相关属性</strong>：<a href="word-wrap.htm" class="g-property">word-wrap/overflow-wrap</a></p>
+			<p><strong>媒　体</strong>：视觉</p>
+		</div>
+	</section>
+	<section id="value" class="g-mod g-attr">
+		<h2 class="tit">取值：</h2>
+		<div class="cont">
+			<dl>
+				<dt>normal：</dt>
+				<dd>默认的换行规则。依据各自语言的规则，允许在字间发生换行。</dd>
+				<dt>keep-all：</dt>
+				<dd>对于 CJK（中文，韩文，日文）文本不允许在字符内发生换行。Non-CJK 文本表现同<code class="g-value">normal</code></dd>
+				<dt>break-all：</dt>
+				<dd>对于 Non-CJK 文本允许在任意字符内发生换行。该值适合包含一些非亚洲文本的亚洲文本，比如使连续的英文字符断行。</dd>
+				<dt>break-word：</dt>
+				<dd>与<code class="g-value">break-all</code>相同，不同的地方在于它要求一个没有断行破发点的词必须保持为一个整体单位。这与<a href="word-wrap.htm" class="g-property">word-wrap</a>的<code class="g-value">break-word</code>值效果相同</dd>
+			</dl>
+		</div>
+	</section>
+	<section id="intro" class="g-mod g-attr">
+		<h2 class="tit">说明：</h2>
+		<div class="cont">
+			<strong>定义元素内容文本的字间与字符间的换行行为。</strong>
+			<ul>
+				<li class="g-color-light">作为IE的私有属性之一，IE5.5率先实现了<code class="g-property">word-break</code>，后期被w3c采纳成标准属性；</li>
+				<li>对于解决防止页面中出现连续无意义的长字符打破布局，应该使用<code class="g-value">break-all | break-word</code>属性值；</li>
+				<li>
+					<p>同为强制打断单词的<code class="g-value">break-all</code>与<code class="g-value">break-word</code>的两个值，需要了解她们间的主要区别（下述2个示例需要在webkit/blink浏览器下查看）：</p>
+					<style>
+					.test1, .test2 {
+						background: #eee;
+						width: 140px;
+						font-size: 14px;
+						text-align: left !important;
+					}
+					.test1 {
+						word-break: break-all;
+					}
+					.test2 {
+						word-break: break-word;
+					}
+					</style>
+					<div class="gquote">
+						<p class="gquote-tit"><strong>break-all：</strong></p>
+						<div class="gquote-cont">
+							<div class="img test1">做一个示例让大家更好的区分wordbreakbreakword与wordbreakbreakall的实际应用效果</div>
+							<blockquote class="code"><code><xmp>.test1 {
+	word-break: break-all;
+}</xmp></code></blockquote>
+						</div>
+						<p class="gquote-info">break-all会在文本内容遇见边界时，强制将文本打断换行，而不考虑单词是否是完整的一个单位</p>
+					</div>
+					<div class="gquote">
+						<p class="gquote-tit"><strong>break-word：</strong></p>
+						<div class="gquote-cont">
+							<div class="img test2">做一个示例让大家更好的区分wordbreakbreakword与wordbreakbreakall的实际应用效果</div>
+							<blockquote class="code"><code><xmp>.test2 {
+	word-break: break-word;
+}</xmp></code></blockquote>
+						</div>
+						<p class="gquote-info">break-word同样也会在文本内容遇见边界时，强制将文本打断换行，不同的在于它会考虑单词是否完整，如果当前行无法放下需要被打断的单词，为了保持完整性，会将整个单词放到下一行进行展示</p>
+					</div>
+				</li>
+				<li>对应的脚本特性为：<strong>wordBreak</strong>。</li>
+			</ul>
+		</div>
+	</section>
+	<section id="compatible" class="g-mod g-attr">
+		<h2 class="tit">兼容性：</h2>
+		<div class="cont">
+			<ul class="support-type">
+				<li><span class="support">浅绿</span> = 支持</li>
+				<li><span class="unsupport">红色</span> = 不支持</li>
+				<li><span class="partsupport">粉色</span> = 部分支持</li>
+			</ul>
+			<table class="g-data">
+				<thead>
+					<tr>
+						<th>Values</th>
+						<th>IE</th>
+						<th>Firefox</th>
+						<th>Chrome</th>
+						<th>Safari</th>
+						<th>Opera</th>
+						<th>iOS Safari</th>
+						<th>Android Browser</th>
+						<th>Android Chrome</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><strong>Basic Support</strong></td>
+						<td class="support">8.0+</td>
+						<td class="support">40.0+</td>
+						<td class="support">40.0+</td>
+						<td class="support">8.0+</td>
+						<td class="support">40.0+</td>
+						<td class="support">8.0+</td>
+						<td class="support">4.4+</td>
+						<td class="support">28.0+</td>
+					</tr>
+					<tr>
+						<td rowspan="2">keep-all</td>
+						<td class="support" rowspan="2">8.0+</td>
+						<td class="support" rowspan="2">40.0+</td>
+						<td class="unsupport">40.0-43.0</td>
+						<td class="unsupport">8.0</td>
+						<td class="support" rowspan="2">40.0+</td>
+						<td class="unsupport">8.0-8.4</td>
+						<td class="unsupport">4.4-43.0</td>
+						<td class="unsupport">28.0-43.0</td>
+					</tr>
+					<tr>
+						<td class="support">44.0+</td>
+						<td class="support">9.0+</td>
+						<td class="support">9.0+</td>
+						<td class="support">44.0+</td>
+						<td class="support">44.0+</td>
+					</tr>
+					<tr>
+						<td rowspan="2">break-word <sup><a href="#support1">#1</a></sup></td>
+						<td class="unsupport" rowspan="2">8.0-16.0</td>
+						<td class="unsupport" rowspan="2">40.0-58.0</td>
+						<td class="unsupport">40.0-43.0</td>
+						<td class="unsupport">8.0</td>
+						<td class="support" rowspan="2">40.0+</td>
+						<td class="unsupport">8.0-8.4</td>
+						<td class="unsupport">4.4-43.0</td>
+						<td class="unsupport">28.0-43.0</td>
+					</tr>
+					<tr>
+						<td class="support">44.0+</td>
+						<td class="support">9.0+</td>
+						<td class="support">9.0+</td>
+						<td class="support">44.0+</td>
+						<td class="support">44.0+</td>
+					</tr>
+				</tbody>
+			</table>
+			<ol class="support-info">
+				<li id="support1">Safari, Chrome, Opera 以及其他 WebKit/Blink 内核浏览器还支持<code class="g-value">break-word</code>属性值，不过对于版本的支持性，上述表格数据不一定准确。</li>
+			</ol>
+		</div>
+	</section>
+	<section id="example" class="g-mod g-attr">
+		<h2 class="tit">示例：</h2>
+		<div class="cont">
+			<textarea cols="90" rows="10">
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+<meta charset="utf-8" />
+<title>word-break_CSS参考手册_web前端开发参考手册系列</title>
+<meta name="author" content="Joy Du(飘零雾雨), dooyoe@gmail.com, www.doyoe.com" />
+<style>
+.test p{width:100px;border:1px solid #000;background-color:#eee;}
+.normal p{word-break:normal;}
+.break-all p{word-break:break-all;}
+.keep-all p{word-break:keep-all;}
+.break-word p{word-break:break-word;}
+</style>
+</head>
+<body>
+<ul class="test">
+	<li class="normal">
+		<strong>normal：</strong>
+		<p>测试效果aaabbbcccdddeeefffggghhhiiijjjkkklllmmmnnn</p>
+	</li>
+	<li class="break-all">
+		<strong>break-all：</strong>
+		<p>测试效果aaabbbcccdddeeefffggghhhiiijjjkkklllmmmnnn</p>
+	</li>
+	<li class="keep-all">
+		<strong>keep-all：</strong>
+		<p>测试效果aaabbbcccdddeeefffggghhhiiijjjkkklllmmmnnn</p>
+	</li>
+	<li class="break-word">
+		<strong>break-word：</strong>
+		<p>测试效果aaabbbcccdddeeefffggghhhiiijjjkkklllmmmnnn</p>
+	</li>
+</ul>
+</body>
+</html>
+			</textarea>
+			<p><input type="button" value="运行" class="g-btn g-btn-sure" /></p>
+		</div>
+	</section>
+</section>
+<footer id="ft">
+	<aside id="rights" class="g-mod">
+		<!-- 插入浏览器及版权信息 -->
+	</aside>
+</footer>
+<script src="../../js/jquery.js"></script>
+<script src="../../js/inner.js"></script>
+</body>
+</html>

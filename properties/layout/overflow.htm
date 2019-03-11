@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+<meta charset="utf-8" />
+<title>overflow</title>
+<meta name="description" content="CSS3参考手册之:overflow" />
+<meta name="keywords" content="overflow, css3, css3参考手册" />
+<meta name="author" content="Joy Du(飘零雾雨), dooyoe@gmail.com, www.doyoe.com" />
+<meta name="robots" content="all" />
+<!--[if lte IE 8]>
+<script src="../../js/html5.js"></script>
+<![endif]-->
+<link rel="stylesheet" href="../../skin/article.css" />
+</head>
+<body>
+<nav id="guide" class="g-mod">
+	<div class="from">
+		<a href="http://css.doyoe.com/" target="_blank">CSS3参考手册</a>
+		<span>&#187;</span>
+		<a href="../index.htm">属性列表</a>
+		<span>&#187;</span>
+		<a href="index.htm" id="category" rel="properties/layout" name="overflow">布局属性</a>
+		<span>&#187;</span>
+	</div>
+	<div class="to">
+		<span class="label">相关内容：</span>
+		<div class="g-combobox g-transition">
+			<a href="?" class="g-transition target">
+				<strong>其它布局属性参考</strong>
+				<span>选择其它项<!--[if lte IE 7]><ins>IE7 and earlier, Get to die</ins><![endif]--></span>
+			</a>
+			<div class="g-transition list">
+				<ul>
+					<!-- 插入分类快速导航 -->
+				</ul>
+			</div>
+		</div>
+	</div>
+</nav>
+<header id="hd">
+	<section id="title" class="g-mod">
+		<h1 class="tit">overflow</h1>
+		<ul class="info">
+			<li><strong>版本：CSS2/3</strong></li>
+			<li>2018.3.6</li>
+		</ul>
+		<!-- 插入浏览器信息 -->
+	</section>
+</header>
+<section id="bd">
+	<section id="syntax" class="g-mod g-attr">
+		<h2 class="tit">简写属性语法：</h2>
+		<div class="cont">
+			<p><strong>overflow</strong>：<mark class="defaultvalue">visible</mark> | hidden | scroll | auto | <ins class="g-color-css3-new" title="css3">clip</ins></p>
+			<p><strong>默认值</strong>：<mark class="defaultvalue">看每个独立属性</mark></p>
+			<p><strong>适用于</strong>：块容器，伸缩盒容器，grid容器</p>
+			<p><strong>继承性</strong>：无</p>
+			<p><strong>动画性</strong>：否</p>
+			<p><strong>计算值</strong>：看每个独立属性</p>
+			<p><strong>媒　体</strong>：视觉</p>
+		</div>
+		<h2 class="tit">分拆独立属性语法：</h2>
+		<div class="cont">
+			<p><strong><a href="#overflow-*">overflow-*</a></strong>：<mark class="defaultvalue">visible</mark> | hidden | scroll | auto | <ins class="g-color-css3-new" title="css3">clip</ins></p>
+			<p id="overflow-*"><strong>overflow-*</strong> = <code class="g-property">overflow-x</code>,<code class="g-property">overflow-y</code></p>
+			<p><strong>默认值</strong>：<mark class="defaultvalue">visible</mark></p>
+			<p><strong>适用于</strong>：块容器，伸缩盒容器，grid容器</p>
+			<p><strong>继承性</strong>：无</p>
+			<p><strong>动画性</strong>：否</p>
+			<p><strong>计算值</strong>：指定值，除了当<code class="g-property">overflow-x</code>,<code class="g-property">overflow-y</code>之一设置为<code class="g-value">非 visible</code>时另一个属性会自动将默认值<code class="g-value">visible</code>计算为<code class="g-value">auto</code>外</p>
+			<p><strong>媒　体</strong>：视觉</p>
+		</div>
+	</section>
+	<section id="value" class="g-mod g-attr">
+		<h2 class="tit">取值：</h2>
+		<div class="cont">
+			<dl>
+				<dt>visible：</dt>
+				<dd>对溢出内容不做处理，内容可能会超出容器。</dd>
+				<dt>hidden：</dt>
+				<dd>隐藏溢出容器的内容且不出现滚动条。</dd>
+				<dt>scroll：</dt>
+				<dd>隐藏溢出容器的内容，溢出的内容可以通过滚动呈现。</dd>
+				<dt>auto：</dt>
+				<dd>当内容没有溢出容器时不出现滚动条，当内容溢出容器时出现滚动条，按需出现滚动条。<code class="g-code">textarea</code>元素的<code class="g-property">overflow</code>默认值就是<code class="g-value">auto</code>。</dd>
+				<dt class="css3-value g-color-css3-new">clip：</dt>
+				<dd>与<code class="g-value">hidden</code>一样，<code class="g-value">clip</code>也被用来隐藏溢出容器的内容且不出现滚动条。不同的地方在于，<code class="g-value">clip</code>是一个完全禁止滚动的容器，而<code class="g-value">hidden</code>仍然可以通过编程机制让内容可以滚动。</dd>
+			</dl>
+		</div>
+		<div class="related">
+			<p class="g-color-light">* CSS3新增属性可能存在描述错误及变更，仅供参考，持续更新</p>
+		</div>
+	</section>
+	<section id="intro" class="g-mod g-attr">
+		<h2 class="tit">说明：</h2>
+		<div class="cont">
+			<strong>定义了元素处理溢出内容的方式。</strong>
+			<ul>
+				<li>
+					<p><code class="g-property">overflow</code>的效果等同于<code class="g-property">overflow-x</code> + <code class="g-property">overflow-y</code>。</p>
+					<div class="gquote">
+						<p class="gquote-tit"><strong>举个例子：</strong></p>
+						<blockquote class="gquote-cont"><code><xmp>.demo {
+	overflow: hidden;
+}
+等同于：
+.demo {
+	overflow-x: hidden;
+	oveflow-y: hidden;
+}
+</xmp></code></blockquote>
+					</div>
+				</li>
+				<li>当块级元素定义了<code class="g-property">overflow</code>属性（包括<code class="g-property">overflow-x</code>与<code class="g-property">overflow-y</code>）值为<code class="g-value">非 visibile</code>时，将会为它的内容创建一个新的块格式化上下文（BFC）。</li>
+				<li>对于<code class="g-code">table</code>元素来说，假如其<a href="../table/table-layout.htm" class="g-property">table-layout</a>属性设置为<code class="g-value">fixed</code>，则<code class="g-code">td</code>、<code class="g-code">th</code>元素支持将<code class="g-property">overflow</code>设为<code class="g-value">hidden</code>、<code class="g-value">scroll</code>或<code class="g-value">auto</code>，此时超出单元格尺寸的内容将被剪切。如果设为<code class="g-value">visible</code>，将导致额外的文本溢出到右边或左边（视<a href="../writing-modes/direction.htm" class="g-property">direction</a>属性设置而定）的单元格。</li>
+				<li><code class="g-property">overflow-x</code>属性用于指定元素水平方向上的内容溢出时的处理方式，<code class="g-property">overflow-y</code>属性用于指定元素垂直方向上的内容溢出时的处理方式。</li>
+				<li>
+					<p>当<code class="g-property">overflow-x</code>,<code class="g-property">overflow-y</code>中任意一个属性值的定义为<code class="g-value">非 visible</code>时，另一个属性会自动将默认值<code class="g-value">visible</code>计算为<code class="g-value">auto</code>。</p>
+					<div class="gquote">
+						<p class="gquote-tit"><strong>举个例子：</strong></p>
+						<blockquote class="gquote-cont"><code><xmp>.demo {
+	overflow-x: hidden;
+}
+等同于：
+.demo {
+	overflow-x: hidden;
+	oveflow-y: auto;
+}
+</xmp></code></blockquote>
+				</li>
+				<li>对应的脚本特性分别为：<strong>overflow, overflowX, overflowY</strong>。</li>
+			</ul>
+		</div>
+	</section>
+	<section id="compatible" class="g-mod g-attr">
+		<h2 class="tit">兼容性：</h2>
+		<div class="cont">
+			<ul class="support-type">
+				<li><span class="support">浅绿</span> = 支持</li>
+				<li><span class="unsupport">红色</span> = 不支持</li>
+				<li><span class="partsupport">粉色</span> = 部分支持</li>
+			</ul>
+			<table class="g-data">
+				<thead>
+					<tr>
+						<th>Values</th>
+						<th>IE</th>
+						<th>Firefox</th>
+						<th>Chrome</th>
+						<th>Safari</th>
+						<th>Opera</th>
+						<th>iOS Safari</th>
+						<th>Android Browser</th>
+						<th>Android Chrome</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><strong>Basic Support</strong></td>
+						<td class="support">8.0+</td>
+						<td class="support">40.0+</td>
+						<td class="support">40.0+</td>
+						<td class="support">8.0+</td>
+						<td class="support">40.0+</td>
+						<td class="support">8.0+</td>
+						<td class="support">4.4+</td>
+						<td class="support">28.0+</td>
+					</tr>
+					<tr>
+						<td><ins class="g-color-css3-new">clip</ins></td>
+						<td class="unsupport">16.0</td>
+						<td class="unsupport">58.0</td>
+						<td class="unsupport">64.0</td>
+						<td class="unsupport">11.0</td>
+						<td class="unsupport">50.0</td>
+						<td class="unsupport">11.0</td>
+						<td class="unsupport">62.0</td>
+						<td class="unsupport">64.0</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</section>
+	<section id="example" class="g-mod g-attr">
+		<h2 class="tit">示例：</h2>
+		<div class="cont">
+			<textarea cols="90" rows="10">
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+<meta charset="utf-8" />
+<title>overflow_CSS参考手册_web前端开发参考手册系列</title>
+<meta name="author" content="Joy Du(飘零雾雨), dooyoe@gmail.com, www.doyoe.com" />
+<style>
+.test {
+	overflow: auto;
+	width: 200px;
+	height: 100px;
+	background: #eee;
+}
+</style>
+</head>
+<body>
+<div class="test">
+	<p>苏打速度</p>
+	<p>苏打速度</p>
+	<p>苏打速度</p>
+	<p>苏打速度</p>
+	<p>苏打速度</p>
+</div>
+</body>
+</html>
+			</textarea>
+			<p><input type="button" value="运行" class="g-btn g-btn-sure" /></p>
+		</div>
+	</section>
+</section>
+<footer id="ft">
+	<aside id="rights" class="g-mod">
+		<!-- 插入浏览器及版权信息 -->
+	</aside>
+</footer>
+<script src="../../js/jquery.js"></script>
+<script src="../../js/inner.js"></script>
+</body>
+</html>
