@@ -26,7 +26,7 @@
 
 ## 作者
 
-肖虎威，我目前居住在武汉，当然，也可以通过我的[个人站点](http://www.xiaohuwei.cn)，博客：[肖虎威个人博客](http://blog.xiaohuwei.cn)，[CSS参考手册](http://css.xiaohuwei.cn) .
+肖虎威，我目前居住在武汉，当然，也可以通过我的[个人站点](http://www.xiaohuwei.cn)，博客：[肖虎威个人博客](http://blog.xiaohuwei.cn)，[CSS参考手册](http://css.xiaohuwei.cn) 找到我.
 
 ## 版本许可
 
